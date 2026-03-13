@@ -1,0 +1,62 @@
+appId: com.emailkb.assistant
+productName: Email KB Assistant
+copyright: Copyright © 2026 Email KB Assistant
+
+directories:
+  output: release
+  buildResources: build
+
+# Files to include in the package
+# electron-builder resolves production dependencies automatically
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+  # Strip test/doc/source noise from production node_modules
+  - "!node_modules/**/test/**"
+  - "!node_modules/**/tests/**"
+  - "!node_modules/**/spec/**"
+  - "!node_modules/**/__tests__/**"
+  - "!node_modules/**/docs/**"
+  - "!node_modules/**/doc/**"
+  - "!node_modules/**/example/**"
+  - "!node_modules/**/examples/**"
+  - "!node_modules/**/*.md"
+  - "!node_modules/**/*.markdown"
+  - "!node_modules/**/CHANGELOG*"
+  - "!node_modules/**/HISTORY*"
+  - "!node_modules/**/LICENSE*"
+  - "!node_modules/**/LICENCE*"
+  - "!node_modules/**/.eslintrc*"
+  - "!node_modules/**/.prettierrc*"
+  - "!node_modules/**/tsconfig.json"
+  - "!node_modules/**/*.map"
+  - "!node_modules/**/*.d.ts"
+
+# Unpack native .node modules from the asar archive so they load correctly at runtime
+asarUnpack:
+  - "**/*.node"
+
+# Rebuild native modules (e.g. better-sqlite3) against Electron's Node.js version
+npmRebuild: true
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: dir
+      arch:
+        - x64
+  icon: build/icon.ico
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: "Email KB Assistant"
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  license: null
