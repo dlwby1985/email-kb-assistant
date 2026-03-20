@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-electron/
+release/
+*.tsbuildinfo
+
+# Environment and credentials
+.env
+.env.*
+credentials.json
+
+# Claude Code local settings
+.claude/
+
+# Development plan files (contain personal context)
+email-kb-assistant-PHASE*.md
+email-kb-assistant-OPTIMIZATION-PLAN*.md
+email-kb-assistant-SPEC-FINAL.md
+pre-public-cleanup.md
+MEMORY.md
+V1.1-RELEASE-PLAN.md
+OAUTH-IMAP-PLAN.md
+
+# Personal documents
+*.docx
+*.tmp
+nul
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+npm-debug.log*

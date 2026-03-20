@@ -1,0 +1,330 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Glassmorphism Design System
+   Email KB Assistant — Visual Redesign
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables ──────────────────────────────────────────────────────── */
+:root {
+  /* Primary */
+  --gm-maroon: #8C1D40;
+  --gm-gold: #FFC627;
+
+  /* Background gradient stops */
+  --gm-bg-start: #5C1530;
+  --gm-bg-mid: #2A0E1A;
+  --gm-bg-end: #0D0508;
+
+  /* Neutrals */
+  --gm-white: #FAFAFA;
+  --gm-gray-light: #BFBFBF;
+  --gm-gray-dark: #484848;
+
+  /* Accents */
+  --gm-blue: #00A3E0;
+  --gm-turquoise: #4AB7C4;
+
+  /* Text */
+  --gm-text-primary: #FAFAFA;
+  --gm-text-heading: #FFC627;
+  --gm-text-label: #BFBFBF;
+  --gm-text-placeholder: rgba(255, 255, 255, 0.35);
+
+  /* Badges */
+  --gm-badge-faculty: #8C1D40;
+  --gm-badge-student: #FFC627;
+  --gm-badge-admin: #00A3E0;
+  --gm-badge-external: #4AB7C4;
+  --gm-badge-strict: #8C1D40;
+  --gm-badge-indexed: #4AB7C4;
+  --gm-badge-pending: #FFC627;
+}
+
+/* ── App Background ─────────────────────────────────────────────────────── */
+.app-bg {
+  background: linear-gradient(160deg, var(--gm-bg-start) 0%, var(--gm-bg-mid) 40%, var(--gm-bg-end) 100%);
+  min-height: 100vh;
+  color: var(--gm-text-primary);
+}
+
+/* ── Frosted Glass Cards ────────────────────────────────────────────────── */
+
+/* Standard card */
+.glass-card {
+  background: rgba(140, 29, 64, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* Gold-accented card (pinned contacts, active sections, splash) */
+.glass-card-gold {
+  background: rgba(255, 198, 39, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 198, 39, 0.4);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* Nested lighter card (inputs, rows, template cards, file rows) */
+.glass-card-inner {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+/* Upload zone (dashed border) */
+.glass-upload-zone {
+  background: rgba(140, 29, 64, 0.15);
+  border: 2px dashed rgba(255, 198, 39, 0.5);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+}
+
+/* ── Typography ─────────────────────────────────────────────────────────── */
+
+/* Page titles: gold, italic, large */
+.page-title {
+  color: var(--gm-gold);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* Section headings inside cards: gold, italic */
+.section-heading {
+  color: var(--gm-gold);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Field labels: muted gray */
+.field-label {
+  color: var(--gm-text-label);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* Body text: white/near-white */
+.body-text {
+  color: var(--gm-text-primary);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+
+/* Primary: solid gold bg, maroon text */
+.btn-gold {
+  background: var(--gm-gold);
+  color: var(--gm-maroon);
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-size: 0.95rem;
+}
+.btn-gold:hover {
+  background: #e6b220;
+}
+.btn-gold:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary: gold outline, gold text */
+.btn-gold-outline {
+  background: transparent;
+  color: var(--gm-gold);
+  border: 1.5px solid var(--gm-gold);
+  border-radius: 12px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.btn-gold-outline:hover {
+  background: rgba(255, 198, 39, 0.1);
+}
+
+/* Accent: maroon bg, white text */
+.btn-maroon {
+  background: var(--gm-maroon);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-size: 0.95rem;
+}
+.btn-maroon:hover {
+  background: #a02450;
+}
+
+/* ── Form Inputs (glassmorphism) ────────────────────────────────────────── */
+.gm-input,
+.gm-textarea,
+.gm-select {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: var(--gm-text-primary);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.gm-input::placeholder,
+.gm-textarea::placeholder {
+  color: var(--gm-text-placeholder);
+}
+.gm-input:focus,
+.gm-textarea:focus,
+.gm-select:focus {
+  border-color: var(--gm-gold);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 198, 39, 0.2);
+}
+
+/* ── Badges ─────────────────────────────────────────────────────────────── */
+.gm-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.gm-badge-faculty   { background: rgba(140, 29, 64, 0.7); color: white; }
+.gm-badge-student   { background: rgba(255, 198, 39, 0.7); color: #1A0A10; }
+.gm-badge-admin     { background: rgba(0, 163, 224, 0.6); color: white; }
+.gm-badge-external  { background: rgba(74, 183, 196, 0.6); color: white; }
+.gm-badge-strict    { background: rgba(140, 29, 64, 0.8); color: white; font-size: 0.7rem; }
+.gm-badge-indexed   { background: rgba(74, 183, 196, 0.7); color: white; }
+.gm-badge-pending   { background: rgba(255, 198, 39, 0.7); color: #1A0A10; }
+
+/* ── Left Sidebar Navigation ───────────────────────────────────────────── */
+.gm-sidebar {
+  width: 72px;
+  background: rgba(30, 8, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  gap: 6px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Nav item: icon + label stacked */
+.gm-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.6rem;
+  cursor: pointer;
+  padding: 8px 4px;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  width: 62px;
+  text-align: center;
+  user-select: none;
+}
+.gm-nav-item:hover {
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+}
+.gm-nav-item.active {
+  color: var(--gm-gold);
+  background: rgba(255, 198, 39, 0.1);
+}
+.gm-nav-item .nav-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* ── Scrollbar (dark theme) ─────────────────────────────────────────────── */
+.app-bg ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.app-bg ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.app-bg ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.app-bg ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Channel Toggle ─────────────────────────────────────────────────────── */
+.gm-toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+.gm-toggle.active {
+  background: var(--gm-maroon);
+}
+.gm-toggle::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  background: var(--gm-gray-light);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.gm-toggle.active::after {
+  transform: translateX(18px);
+  background: var(--gm-gold);
+}
+
+/* ── Utility: gold unread dot ───────────────────────────────────────────── */
+.gm-dot-unread {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gm-gold);
+  flex-shrink: 0;
+}
+
+/* ── Toast / notifications on dark bg ───────────────────────────────────── */
+.gm-toast {
+  background: rgba(30, 8, 18, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  color: var(--gm-text-primary);
+}
